@@ -4,8 +4,8 @@ namespace Grafxflow\ClearCacheWidget\ReportWidgets;
 
 use Backend\Classes\ReportWidgetBase;
 use Artisan;
-use Flash;
-use Lang;
+use Winter\Storm\Support\Facades\Flash;
+use Illuminate\Support\Facades\Lang;
 
 class ClearCache extends ReportWidgetBase
 {

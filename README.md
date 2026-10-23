@@ -9,6 +9,7 @@ This report widget allows to clear Winter CMS file cache with a single button cl
 You can display a widget with a chart or like a single button. Display options shown in the screenshots.
 
 ##### Features
+
 - Clear cms cache
   + *cms/cache*
   + *cms/combiner*
@@ -18,6 +19,7 @@ You can display a widget with a chart or like a single button. Display options s
 - Clear thumbs cache of uploaded images
 
 ##### Available locales
+
 - ru
 - en
 - pt-br (by [Leonardo Shinagawa](https://github.com/shina))
@@ -34,21 +36,43 @@ You can display a widget with a chart or like a single button. Display options s
 # Documentation
 
 #### Installation
-- The plugin can be installed from the Marketplace. Please see the details [here](http://octobercms.com/help/site/projects#introduction).  
-- Install from backend:
-  1. Go to "INSTALL PRODUCTS" page;
-  2. Search plugin `Romanov.ClearCacheWidget` and install it.
 
-  **After installation, you can add widget to dashboard.**
+Amend the following in the root **composer.json**.
+
+```
+"repositories": [
+    {
+        "type": "vcs",
+        "url": "https://github.com/grafxflow/wn-clearcachewidget"
+    }
+],
+```
+
+Then run the following:
+
+```
+composer require grafxflow/wn-clearcachewidget
+```
+
+```
+php artisan migrate
+```
+
+> After installation, you can add widget to dashboard.
 
 #### Widget configuration
+
 - **Show without chart**  
 Enable this option to display widget without chart.
+
 - **Chart size**  
 Radius value of chart. Optimal value is 200, but it's only my opinion :)
+
 - **Delete thumbs images**  
 If this option is enabled, thumbs of uploaded images also will be cleared.
+
 - **Path to the folder with thumbs**  
 Path to the folder in which stored thumbs cache. The path must be specified relative to the folder `storage`. Default value is `/app/uploads/public`.
+
 - **Regex for thumb file names**  
 Files with a name that matches the pattern will be deleted. For more details see [preg_match](http://php.net/manual/function.preg-match.php) function. Default value is `/^thumb_.*/`.

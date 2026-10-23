@@ -1,0 +1,8 @@
+{
+    "name": "grafxflow/wn-clearcachewidget",
+    "type": "winter-plugin",
+    "description": "A widget plugin to clear cache for Winter CMS",
+    "homepage": "https://github.com/grafxflow/wn-clearcachewidget",
+    "keywords": ["cms", "wintercms", "clearcache", "widget"],
+    "license": "MIT"
+}

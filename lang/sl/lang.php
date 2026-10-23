@@ -1,15 +1,16 @@
 <?php
+
 return [
     'plugin' => [
-        'name'          => 'Clear Cache',
-        'description'   => 'Pripomoèek za nadzorno plošèo',
-        'label'         => 'Predpomnilnik datotek',
-        'clear'         => 'Poèisti',
-        'success'       => 'Predpomnilnik datotek poèišèen!',
-        'nochart'       => 'Prikaži brez grafa',
-        'radius'        => 'Velikost grafa',
-        'delthumbs'     => 'Izbriši pomanjšano sliko?',
-        'delthumbspath' => 'Pot do mape s pomanjšanimi slikami',
-        'thumbs_regex'  => 'Regex za imena datotek pomanjšanih slik',
+        'name' => 'Clear Cache',
+        'description' => 'Pripomoï¿½ek za nadzorno ploï¿½ï¿½o',
+        'label' => 'Predpomnilnik datotek',
+        'clear' => 'Poï¿½isti',
+        'success' => 'Predpomnilnik datotek poï¿½iï¿½ï¿½en!',
+        'nochart' => 'Prikaï¿½i brez grafa',
+        'radius' => 'Velikost grafa',
+        'delthumbs' => 'Izbriï¿½i pomanjï¿½ano sliko?',
+        'delthumbspath' => 'Pot do mape s pomanjï¿½animi slikami',
+        'thumbs_regex' => 'Regex za imena datotek pomanjï¿½anih slik',
     ],
 ];

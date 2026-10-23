@@ -1,15 +1,16 @@
 # Clear cache widget details
-This report widget allows to clear OctoberCMS file cache with a single button click. 
-> The widget works only if your system is configured to use the file cache driver, which stores the serialized, cached objects in the filesystem!
 
-**[Clear cache widget](http://octobercms.com/plugin/romanov-clearcachewidget) on OctoberCMS marketplace.**
+This report widget allows to clear Winter CMS file cache with a single button click.
+
+> The widget works only if your system is configured to use the file cache driver, which stores the serialised, cached objects in the filesystem!
 
 ##### UI
+
 You can display a widget with a chart or like a single button. Display options shown in the screenshots.
 
 ##### Features
 - Clear cms cache
-  + *cms/cache* 
+  + *cms/cache*
   + *cms/combiner*
   + *cms/twig*
 - Clear backend cache

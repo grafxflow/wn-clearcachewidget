@@ -1,4 +1,6 @@
-<?php namespace Romanov\ClearCacheWidget\ReportWidgets;
+<?php
+
+namespace Grafxflow\ClearCacheWidget\ReportWidgets;
 
 use Backend\Classes\ReportWidgetBase;
 use Artisan;
@@ -27,37 +29,37 @@ class ClearCache extends ReportWidgetBase
     {
         return [
             'title' => [
-                'title'             => 'backend::lang.dashboard.widget_title_label',
-                'default'           => 'romanov.clearcachewidget::lang.plugin.label',
-                'type'              => 'string',
+                'title' => 'backend::lang.dashboard.widget_title_label',
+                'default' => 'grafxflow.clearcachewidget::lang.plugin.label',
+                'type' => 'string',
                 'validationPattern' => '^.+$',
                 'validationMessage' => 'backend::lang.dashboard.widget_title_error'
             ],
             'nochart' => [
-                'title'             => 'romanov.clearcachewidget::lang.plugin.nochart',
-                'type'              => 'checkbox',
+                'title' => 'grafxflow.clearcachewidget::lang.plugin.nochart',
+                'type' => 'checkbox',
             ],
             'radius' => [
-                'title'             => 'romanov.clearcachewidget::lang.plugin.radius',
-                'type'              => 'string',
+                'title' => 'grafxflow.clearcachewidget::lang.plugin.radius',
+                'type' => 'string',
                 'validationPattern' => '^[0-9]+$',
                 'validationMessage' => 'Only numbers!',
-                'default'           => '200',
+                'default' => '200',
             ],
             'delthumbs' => [
-                'title'             => 'romanov.clearcachewidget::lang.plugin.delthumbs',
-                'type'              => 'checkbox',
-                'default'           => false,
+                'title' => 'grafxflow.clearcachewidget::lang.plugin.delthumbs',
+                'type' => 'checkbox',
+                'default' => false,
             ],
 			'thumbspath' => [
-                'title'             => 'romanov.clearcachewidget::lang.plugin.delthumbspath',
-                'type'              => 'string',
-                'placeholder'       => self::THUMBNAILS_PATH,
+                'title' => 'grafxflow.clearcachewidget::lang.plugin.delthumbspath',
+                'type' => 'string',
+                'placeholder' => self::THUMBNAILS_PATH,
             ],
             'thumb_regex' => [
-                'title'             => 'romanov.clearcachewidget::lang.plugin.thumbs_regex',
-                'type'              => 'string',
-                'placeholder'       => self::THUMBNAILS_REGEX,
+                'title' => 'grafxflow.clearcachewidget::lang.plugin.thumbs_regex',
+                'type' => 'string',
+                'placeholder' => self::THUMBNAILS_REGEX,
             ]
         ];
     }
@@ -67,13 +69,13 @@ class ClearCache extends ReportWidgetBase
         if ($this->property("delthumbs")) {
             $this->delThumbs();
         }
-        Flash::success(Lang::get('romanov.clearcachewidget::lang.plugin.success'));
+        Flash::success(Lang::get('grafxflow.clearcachewidget::lang.plugin.success'));
         $widget = ($this->property("nochart"))? 'widget2' : 'widget';
         return [
             'partial' => $this->makePartial(
                 $widget,
                 [
-                    'size'   => $this->getSizes(),
+                    'size' => $this->getSizes(),
                     'radius' => $this->property("radius")
                 ]
             )
@@ -101,16 +103,15 @@ class ClearCache extends ReportWidgetBase
     }
 
     private function getSizes(){
-
-        $s['ccache_b']    = $this->getDirSize(storage_path() . self::CMS_CACHE_PATH);
-        $s['ccache']      = $this->formatSize($s['ccache_b']);
+        $s['ccache_b'] = $this->getDirSize(storage_path() . self::CMS_CACHE_PATH);
+        $s['ccache'] = $this->formatSize($s['ccache_b']);
         $s['ccombiner_b'] = $this->getDirSize(storage_path() . self::CMS_COMBINER_PATH);
-        $s['ccombiner']   = $this->formatSize($s['ccombiner_b']);
-        $s['ctwig_b']     = $this->getDirSize(storage_path() . self::CMS_TWIG_PATH);
-        $s['ctwig']       = $this->formatSize($s['ctwig_b']);
-        $s['fcache_b']    = $this->getDirSize(storage_path() . self::FRAMEWORK_CACHE_PATH);
-        $s['fcache']      = $this->formatSize($s['fcache_b']);
-        $s['all']         = $this->formatSize($s['ccache_b'] + $s['ccombiner_b'] + $s['ctwig_b'] + $s['fcache_b']);
+        $s['ccombiner'] = $this->formatSize($s['ccombiner_b']);
+        $s['ctwig_b'] = $this->getDirSize(storage_path() . self::CMS_TWIG_PATH);
+        $s['ctwig'] = $this->formatSize($s['ctwig_b']);
+        $s['fcache_b'] = $this->getDirSize(storage_path() . self::FRAMEWORK_CACHE_PATH);
+        $s['fcache'] = $this->formatSize($s['fcache_b']);
+        $s['all'] = $this->formatSize($s['ccache_b'] + $s['ccombiner_b'] + $s['ctwig_b'] + $s['fcache_b']);
         return $s;
     }
 
@@ -129,5 +130,4 @@ class ClearCache extends ReportWidgetBase
             unlink($img);
         }
     }
-
 }

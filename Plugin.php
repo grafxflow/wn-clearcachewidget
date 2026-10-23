@@ -13,7 +13,7 @@ class Plugin extends PluginBase
             'description' => 'grafxflow.clearcachewidget::lang.plugin.description',
             'author' => 'Paul Coull',
             'icon' => 'icon-trash',
-            'homepage' => 'https://github.com/grafxflow/wn-clearcachewidget'
+            'homepage' => 'https://github.com/grafxflow/wn-clearcachewidget',
         ];
     }
 
@@ -22,8 +22,8 @@ class Plugin extends PluginBase
         return [
             'Grafxflow\ClearCacheWidget\ReportWidgets\ClearCache' => [
                 'label' => 'grafxflow.clearcachewidget::lang.plugin.label',
-                'context' => 'dashboard'
-            ]
+                'context' => 'dashboard',
+            ],
         ];
     }
 }

@@ -30,6 +30,7 @@ class ClearCache extends ReportWidgetBase
         $this->vars['size'] = $this->getSizes();
         $this->vars['radius'] = $this->property("radius");
         $widget = ($this->property("nochart")) ? 'widget2' : 'widget';
+
         return $this->makePartial($widget);
     }
 
@@ -75,11 +76,14 @@ class ClearCache extends ReportWidgetBase
     public function onClear()
     {
         Artisan::call('cache:clear');
+
         if ($this->property("delthumbs")) {
             $this->delThumbs();
         }
+
         Flash::success(Lang::get('grafxflow.clearcachewidget::lang.plugin.success'));
         $widget = ($this->property("nochart")) ? 'widget2' : 'widget';
+
         return [
             'partial' => $this->makePartial(
                 $widget,
@@ -96,10 +100,13 @@ class ClearCache extends ReportWidgetBase
         if ( ! file_exists($directory) || count(scandir($directory)) <= 2) {
             return 0;
         }
+
         $size = 0;
+
         foreach (new RecursiveIteratorIterator(new RecursiveDirectoryIterator($directory)) as $file) {
             $size += $file->getSize();
         }
+
         return $size;
     }
 
@@ -107,9 +114,11 @@ class ClearCache extends ReportWidgetBase
     {
         $mod = 1024;
         $units = explode(' ', 'B KB MB GB TB PB');
+
         for ($i = 0; $size > $mod; $i++) {
             $size /= $mod;
         }
+
         return round($size, 2) . ' ' . $units[$i];
     }
 
@@ -124,6 +133,7 @@ class ClearCache extends ReportWidgetBase
         $s['fcache_b'] = $this->getDirSize(storage_path() . self::FRAMEWORK_CACHE_PATH);
         $s['fcache'] = $this->formatSize($s['fcache_b']);
         $s['all'] = $this->formatSize($s['ccache_b'] + $s['ccombiner_b'] + $s['ctwig_b'] + $s['fcache_b']);
+
         return $s;
     }
 
@@ -134,11 +144,13 @@ class ClearCache extends ReportWidgetBase
         $path .= $this->property('thumbspath') ?: self::THUMBNAILS_PATH;
         $iterator = new RecursiveDirectoryIterator($path);
         $regex = $this->property('thumb_regex') ?: self::THUMBNAILS_REGEX;
+
         foreach (new RecursiveIteratorIterator($iterator) as $file) {
             if (preg_match($regex, $file->getFilename())) {
                 $thumbs[] = $file->getRealPath();
             }
         }
+
         foreach ($thumbs as $img) {
             unlink($img);
         }

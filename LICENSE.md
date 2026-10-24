@@ -1,6 +1,7 @@
 The MIT License (MIT)
 
 Copyright (c) 2016-2020 Alexander Romanov
+
 Copyright (c) 2026-present Paul Coull
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

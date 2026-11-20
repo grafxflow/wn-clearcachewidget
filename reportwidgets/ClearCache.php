@@ -28,8 +28,8 @@ class ClearCache extends ReportWidgetBase
     public function render()
     {
         $this->vars['size'] = $this->getSizes();
-        $this->vars['radius'] = $this->property("radius");
-        $widget = ($this->property("nochart")) ? 'widget2' : 'widget';
+        $this->vars['radius'] = $this->property('radius');
+        $widget = ($this->property('nochart')) ? 'widget2' : 'widget';
 
         return $this->makePartial($widget);
     }
@@ -77,19 +77,19 @@ class ClearCache extends ReportWidgetBase
     {
         Artisan::call('cache:clear');
 
-        if ($this->property("delthumbs")) {
+        if ($this->property('delthumbs')) {
             $this->delThumbs();
         }
 
         Flash::success(Lang::get('grafxflow.clearcachewidget::lang.plugin.success'));
-        $widget = ($this->property("nochart")) ? 'widget2' : 'widget';
+        $widget = ($this->property('nochart')) ? 'widget2' : 'widget';
 
         return [
             'partial' => $this->makePartial(
                 $widget,
                 [
                     'size' => $this->getSizes(),
-                    'radius' => $this->property("radius"),
+                    'radius' => $this->property('radius'),
                 ],
             ),
         ];

@@ -2,6 +2,7 @@
 
 namespace Grafxflow\ClearCacheWidget;
 
+use Grafxflow\ClearCacheWidget\ReportWidgets\ClearCache;
 use System\Classes\PluginBase;
 
 class Plugin extends PluginBase
@@ -20,7 +21,7 @@ class Plugin extends PluginBase
     public function registerReportWidgets()
     {
         return [
-            'Grafxflow\ClearCacheWidget\ReportWidgets\ClearCache' => [
+            ClearCache::class => [
                 'label' => 'grafxflow.clearcachewidget::lang.plugin.label',
                 'context' => 'dashboard',
             ],

@@ -4,5 +4,8 @@
     "description": "A widget plugin to clear cache for Winter CMS",
     "homepage": "https://github.com/grafxflow/wn-clearcachewidget",
     "keywords": ["cms", "wintercms", "clearcache", "widget"],
-    "license": "MIT"
+    "license": "MIT",
+    "require-dev": {
+        "laravel/pint": "^1.32"
+    }
 }
